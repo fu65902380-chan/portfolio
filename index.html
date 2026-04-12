@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Siyang Fu — Cinematographer / DoP / Colorist</title>
+    <meta
+      name="description"
+      content="Cinematic portfolio website for Siyang Fu — Cinematographer, DoP, and Colorist based in Toronto."
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            },
+            colors: {
+              ink: '#09090b',
+              mist: '#a1a1aa',
+              line: 'rgba(255,255,255,0.12)',
+              glow: '#d4a373'
+            },
+            boxShadow: {
+              soft: '0 20px 70px rgba(0,0,0,.35)'
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      html { scroll-behavior: smooth; }
+      body {
+        background:
+          radial-gradient(circle at top, rgba(212,163,115,.15), transparent 30%),
+          linear-gradient(180deg, #111114 0%, #09090b 30%, #070708 100%);
+      }
+      .glass {
+        background: rgba(255,255,255,0.04);
+        backdrop-filter: blur(8px);
+        border: 1px solid rgba(255,255,255,0.08);
+      }
+      .poster::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to top, rgba(0,0,0,.72), rgba(0,0,0,.12) 45%, rgba(0,0,0,.06));
+      }
+      .noise {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        opacity: .065;
+        background-image: radial-gradient(rgba(255,255,255,.9) 0.4px, transparent 0.6px);
+        background-size: 7px 7px;
+      }
+    </style>
+  </head>
+  <body class="text-white font-sans selection:bg-white selection:text-black">
+    <div class="noise"></div>
+
+    <header class="sticky top-0 z-50 border-b border-line bg-black/40 backdrop-blur-xl">
+      <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
+        <a href="#top" class="tracking-[0.25em] text-sm uppercase text-white/90">Siyang Fu</a>
+        <nav class="hidden gap-7 text-sm text-white/75 md:flex">
+          <a href="#works" class="transition hover:text-white">Works</a>
+          <a href="#vlog" class="transition hover:text-white">Vlog</a>
+          <a href="#stills" class="transition hover:text-white">Stills</a>
+          <a href="#about" class="transition hover:text-white">About</a>
+          <a href="#contact" class="transition hover:text-white">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1600&q=80')] bg-cover bg-center opacity-20"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-black/20 via-black/35 to-ink"></div>
+        <div class="relative mx-auto flex min-h-[86svh] max-w-7xl items-end px-6 pb-20 pt-24 lg:px-10">
+          <div class="max-w-3xl">
+            <p class="mb-4 text-xs uppercase tracking-[0.35em] text-glow">Cinematographer · DoP · Colorist</p>
+            <h1 class="max-w-3xl text-5xl font-semibold leading-none tracking-tight sm:text-6xl lg:text-7xl">
+              Images shaped with atmosphere, contrast, and story.
+            </h1>
+            <p class="mt-6 max-w-2xl text-base leading-7 text-white/72 sm:text-lg">
+              A redesigned personal portfolio with a darker, more cinematic presentation for narrative work,
+              music videos, stills, and selected behind-the-scenes content.
+            </p>
+            <div class="mt-9 flex flex-wrap gap-4">
+              <a href="#works" class="rounded-full bg-white px-6 py-3 text-sm font-medium text-black transition hover:opacity-90">View selected work</a>
+              <a href="#contact" class="rounded-full border border-white/20 px-6 py-3 text-sm font-medium text-white transition hover:bg-white/10">Get in touch</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="mx-auto max-w-7xl px-6 py-20 lg:px-10" id="works">
+        <div class="mb-10 flex items-end justify-between gap-6">
+          <div>
+            <p class="text-xs uppercase tracking-[0.32em] text-glow">Selected work</p>
+            <h2 class="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">Featured projects</h2>
+          </div>
+          <p class="hidden max-w-xl text-sm leading-6 text-white/60 md:block">
+            Replace these cards with your Vimeo, YouTube, or private screening links. The layout is optimized for a film portfolio first.
+          </p>
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          <article class="group relative overflow-hidden rounded-3xl border border-white/10 shadow-soft poster min-h-[28rem]">
+            <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1200&q=80')] bg-cover bg-center transition duration-700 group-hover:scale-105"></div>
+            <div class="absolute inset-x-0 bottom-0 z-10 p-6">
+              <p class="text-xs uppercase tracking-[0.3em] text-white/70">Narrative</p>
+              <h3 class="mt-2 text-2xl font-semibold">Project title 01</h3>
+              <p class="mt-3 text-sm leading-6 text-white/75">A short one-line logline goes here to describe the visual direction and your role on the project.</p>
+            </div>
+          </article>
+
+          <article class="group relative overflow-hidden rounded-3xl border border-white/10 shadow-soft poster min-h-[28rem]">
+            <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=1200&q=80')] bg-cover bg-center transition duration-700 group-hover:scale-105"></div>
+            <div class="absolute inset-x-0 bottom-0 z-10 p-6">
+              <p class="text-xs uppercase tracking-[0.3em] text-white/70">Commercial</p>
+              <h3 class="mt-2 text-2xl font-semibold">Project title 02</h3>
+              <p class="mt-3 text-sm leading-6 text-white/75">Use this card for branded work, fashion visuals, or music-driven pieces.</p>
+            </div>
+          </article>
+
+          <article class="group relative overflow-hidden rounded-3xl border border-white/10 shadow-soft poster min-h-[28rem]">
+            <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80')] bg-cover bg-center transition duration-700 group-hover:scale-105"></div>
+            <div class="absolute inset-x-0 bottom-0 z-10 p-6">
+              <p class="text-xs uppercase tracking-[0.3em] text-white/70">Music video</p>
+              <h3 class="mt-2 text-2xl font-semibold">Project title 03</h3>
+              <p class="mt-3 text-sm leading-6 text-white/75">A flexible third slot for experimental work or your strongest visual reel.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="mx-auto max-w-7xl px-6 py-4 lg:px-10" id="vlog">
+        <div class="glass overflow-hidden rounded-[2rem] p-8 lg:p-12">
+          <div class="grid gap-10 lg:grid-cols-[1.2fr_.8fr] lg:items-center">
+            <div>
+              <p class="text-xs uppercase tracking-[0.32em] text-glow">Vlog / process</p>
+              <h2 class="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">A place for process, travel, and behind-the-scenes.</h2>
+              <p class="mt-5 max-w-2xl text-base leading-7 text-white/70">
+                Your current site already separates Works, Vlog, Stills, and About. This redesign keeps that structure,
+                but presents it in a cleaner hierarchy with more room for motion, thumbnails, and future updates.
+              </p>
+            </div>
+            <div class="rounded-[1.75rem] border border-white/10 bg-black/30 p-5">
+              <div class="aspect-video rounded-2xl border border-white/10 bg-gradient-to-br from-white/10 to-white/5"></div>
+              <p class="mt-4 text-sm text-white/65">Drop in a YouTube or Vimeo embed here, or link this block to a separate vlog page.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="mx-auto max-w-7xl px-6 py-20 lg:px-10" id="stills">
+        <div class="mb-10">
+          <p class="text-xs uppercase tracking-[0.32em] text-glow">Stills</p>
+          <h2 class="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">Frame gallery</h2>
+        </div>
+        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div class="aspect-[4/5] rounded-3xl border border-white/10 bg-[url('https://images.unsplash.com/photo-1516724562728-afc824a36e84?auto=format&fit=crop&w=900&q=80')] bg-cover bg-center"></div>
+          <div class="aspect-[4/5] rounded-3xl border border-white/10 bg-[url('https://images.unsplash.com/photo-1499364615650-ec38552f4f34?auto=format&fit=crop&w=900&q=80')] bg-cover bg-center"></div>
+          <div class="aspect-[4/5] rounded-3xl border border-white/10 bg-[url('https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=900&q=80')] bg-cover bg-center"></div>
+          <div class="aspect-[4/5] rounded-3xl border border-white/10 bg-[url('https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=900&q=80')] bg-cover bg-center"></div>
+          <div class="aspect-[4/5] rounded-3xl border border-white/10 bg-[url('https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=900&q=80')] bg-cover bg-center sm:col-span-2"></div>
+          <div class="aspect-[4/5] rounded-3xl border border-white/10 bg-[url('https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=900&q=80')] bg-cover bg-center"></div>
+          <div class="aspect-[4/5] rounded-3xl border border-white/10 bg-[url('https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=900&q=80')] bg-cover bg-center"></div>
+        </div>
+      </section>
+
+      <section class="mx-auto max-w-7xl px-6 py-10 lg:px-10" id="about">
+        <div class="grid gap-8 lg:grid-cols-[.9fr_1.1fr]">
+          <div class="rounded-[2rem] border border-white/10 bg-white/[0.03] p-8">
+            <p class="text-xs uppercase tracking-[0.32em] text-glow">About</p>
+            <h2 class="mt-3 text-3xl font-semibold tracking-tight">Built to feel more like a film portfolio, less like a template.</h2>
+          </div>
+          <div class="rounded-[2rem] border border-white/10 bg-white/[0.03] p-8 text-white/75">
+            <p class="leading-7">
+              This version is designed as a clean static site, so you can host it cheaply on GitHub Pages or Cloudflare Pages,
+              keep your domain, and avoid ongoing builder fees. Replace the temporary text and placeholder imagery with your real stills,
+              project posters, and embeds.
+            </p>
+            <p class="mt-5 leading-7">
+              The visual system leans dark, contrasty, and minimal so your footage stays the focus.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="mx-auto max-w-7xl px-6 py-20 lg:px-10" id="contact">
+        <div class="glass rounded-[2rem] p-8 lg:p-12">
+          <p class="text-xs uppercase tracking-[0.32em] text-glow">Contact</p>
+          <div class="mt-4 grid gap-8 lg:grid-cols-[1fr_.9fr] lg:items-end">
+            <div>
+              <h2 class="text-3xl font-semibold tracking-tight sm:text-4xl">Let’s make the next frame count.</h2>
+              <p class="mt-4 max-w-xl text-base leading-7 text-white/72">
+                Based in Toronto, available for narrative, commercial, music video, and selected editorial collaborations.
+              </p>
+            </div>
+            <div class="grid gap-4 text-sm text-white/78 sm:grid-cols-2">
+              <a class="rounded-2xl border border-white/10 p-5 transition hover:bg-white/5" href="mailto:fu65902380@gmail.com">
+                <div class="text-xs uppercase tracking-[0.25em] text-white/45">Email</div>
+                <div class="mt-2 break-all">fu65902380@gmail.com</div>
+              </a>
+              <a class="rounded-2xl border border-white/10 p-5 transition hover:bg-white/5" href="tel:+17538811222">
+                <div class="text-xs uppercase tracking-[0.25em] text-white/45">Phone</div>
+                <div class="mt-2">+1 753-881-1222</div>
+              </a>
+              <a class="rounded-2xl border border-white/10 p-5 transition hover:bg-white/5" href="#">
+                <div class="text-xs uppercase tracking-[0.25em] text-white/45">Instagram</div>
+                <div class="mt-2">Add your profile link</div>
+              </a>
+              <a class="rounded-2xl border border-white/10 p-5 transition hover:bg-white/5" href="#">
+                <div class="text-xs uppercase tracking-[0.25em] text-white/45">YouTube / Vimeo</div>
+                <div class="mt-2">Add your screening link</div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-line">
+      <div class="mx-auto flex max-w-7xl flex-col gap-3 px-6 py-6 text-xs uppercase tracking-[0.24em] text-white/40 md:flex-row md:items-center md:justify-between lg:px-10">
+        <p>© 2026 Siyang Fu</p>
+        <p>Designed for GitHub Pages / Cloudflare Pages deployment</p>
+      </div>
+    </footer>
+  </body>
+</html>
