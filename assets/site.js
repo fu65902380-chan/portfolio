@@ -18,10 +18,6 @@ function renderWorks() {
       <span class="work-thumb"><img src="${project.image}" alt="${project.title}"></span>
       <span class="card-overlay"></span>
       <span class="play-badge">Play</span>
-      <span class="work-meta">
-        <span class="work-title">${project.title}</span>
-        <span class="work-role">${project.role || "Project"}</span>
-      </span>
     </button>
   `).join("");
 }

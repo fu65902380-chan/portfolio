@@ -26,21 +26,18 @@ code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; color: #d6c2
 .nav a.active, .nav a:hover { opacity: 1; }
 .nav a.active::after { content: ""; position: absolute; left: 0; bottom: -8px; width: 100%; height: 1px; background: var(--fg); }
 .page { padding: 32px 0 72px; }
-.hero-strip { display: grid; grid-template-columns: 1.2fr .8fr; gap: 28px; align-items: end; margin: 18px auto 30px; }
+.hero-strip { display: grid; grid-template-columns: 1.1fr .9fr; gap: 28px; align-items: end; margin: 28px auto 38px; }
 .hero-strip.compact { margin-bottom: 36px; }
 .eyebrow { margin: 0 0 10px; font-size: .76rem; letter-spacing: .22em; text-transform: uppercase; color: var(--muted); }
-.hero-title { margin: 0; font-size: clamp(2rem, 4.8vw, 4.25rem); line-height: .98; font-weight: 400; letter-spacing: -.03em; }
-.hero-copy { margin: 0; color: var(--muted); line-height: 1.7; font-size: 1rem; max-width: 42rem; }
-.works-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-.work-card { position: relative; border: 0; background: #111; padding: 0; cursor: pointer; overflow: hidden; min-height: 0; text-align: left; box-shadow: var(--shadow); }
-.work-thumb { display: block; aspect-ratio: 1 / 1; overflow: hidden; }
+.hero-title { margin: 0; font-size: clamp(2.4rem, 6vw, 5.5rem); line-height: .94; font-weight: 400; letter-spacing: -.05em; max-width: 10ch; }
+.hero-copy { margin: 0; color: var(--muted); line-height: 1.8; font-size: 1rem; max-width: 34rem; }
+.works-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.work-card { position: relative; border: 0; background: #0d0d0d; padding: 0; cursor: pointer; overflow: hidden; min-height: 0; text-align: left; box-shadow: none; }
+.work-thumb { display: block; aspect-ratio: 0.9 / 1; overflow: hidden; }
 .work-thumb img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.01); transition: transform .8s cubic-bezier(.2,.7,.2,1), filter .35s ease; }
-.card-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,.84) 0%, rgba(0,0,0,.24) 34%, rgba(0,0,0,0) 60%); opacity: .92; transition: opacity .35s ease; }
-.play-badge { position: absolute; right: 16px; top: 16px; display: inline-flex; align-items: center; justify-content: center; min-width: 62px; height: 34px; padding: 0 14px; border: 1px solid rgba(255,255,255,.18); backdrop-filter: blur(8px); background: rgba(0,0,0,.28); border-radius: 999px; font-size: .82rem; letter-spacing: .08em; text-transform: uppercase; opacity: 0; transform: translateY(-6px); transition: .35s ease; }
-.work-meta { position: absolute; left: 18px; right: 18px; bottom: 16px; display: grid; gap: 5px; z-index: 2; }
-.work-title { font-size: 1.02rem; font-weight: 500; letter-spacing: .02em; }
-.work-role { font-size: .75rem; text-transform: uppercase; letter-spacing: .16em; color: rgba(255,255,255,.68); }
-.work-card:hover .work-thumb img, .work-card:focus-visible .work-thumb img { transform: scale(1.05); filter: brightness(.78); }
+.card-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,.72) 0%, rgba(0,0,0,.18) 35%, rgba(0,0,0,0) 65%); opacity: .7; transition: opacity .35s ease; }
+.play-badge { position: absolute; left: 20px; bottom: 20px; display: inline-flex; align-items: center; justify-content: center; min-width: 74px; height: 38px; padding: 0 16px; border: 1px solid rgba(255,255,255,.16); backdrop-filter: blur(10px); background: rgba(12,12,12,.42); border-radius: 999px; font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; opacity: 0; transform: translateY(8px); transition: .35s ease; z-index: 3; }
+.work-card:hover .work-thumb img, .work-card:focus-visible .work-thumb img { transform: scale(1.04); filter: brightness(.74); }
 .work-card:hover .play-badge, .work-card:focus-visible .play-badge { opacity: 1; transform: translateY(0); }
 .work-card:focus-visible { outline: 1px solid rgba(255,255,255,.5); outline-offset: 2px; }
 .contact-block { margin-top: 58px; padding-top: 26px; border-top: 1px solid var(--line); }
@@ -69,6 +66,7 @@ code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; color: #d6c2
   .header-inner, .hero-strip, .about-wrap { grid-template-columns: 1fr; }
   .site-role { justify-self: start; }
   .nav { justify-self: start; flex-wrap: wrap; gap: 18px; }
+  .hero-title { max-width: none; }
   .works-grid, .simple-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 640px) {
