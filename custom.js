@@ -1,5 +1,14 @@
 
 (function(){
+  function safePathName(){ return (location.pathname||'').replace(/\/index\.html$/, ''); }
+
+  function classifyPage(){
+    var path=safePathName();
+    if(/stills(\.html)?$/.test(path)) document.body.classList.add('stills-page');
+    if(!/(^|\/)(index\.html)?$/.test(path) && !/stills|about|vlog/.test(path)) document.body.classList.add('project-page');
+    if(/honghe(\.html)?$/.test(path)) document.body.classList.add('page-honghe');
+  }
+
   function setupSlideshows(){
     document.querySelectorAll('section.block .slideshow').forEach(function(show){
       var slides=[].slice.call(show.querySelectorAll('.slide')).filter(function(img){
@@ -19,11 +28,32 @@
     });
   }
 
+  function setupHongheLayout(){
+    var path=safePathName();
+    if(!/honghe(\.html)?$/.test(path)) return;
+    if(document.querySelector('.honghe-hero-fix')) return;
+    var titleSec=document.querySelector('#zwehhQ');
+    var slideSec=document.querySelector('#z_dEa8');
+    var creditSec=document.querySelector('#zrVjt_');
+    if(!slideSec) return;
+    var title=(titleSec && titleSec.innerText || 'Honghe, Yunnan').trim();
+    var sub='';
+    if(titleSec){
+      var txt=titleSec.innerText.split('\n').map(function(s){return s.trim();}).filter(Boolean);
+      if(txt.length>1) sub=txt[1];
+    }
+    var credit=(creditSec && creditSec.innerText || '').trim();
+    var hero=document.createElement('div');
+    hero.className='honghe-hero-fix';
+    hero.innerHTML='<h1>'+title+'</h1>'+(sub?'<p>'+sub+'</p>':'')+(credit?'<p style="margin-top:18px;opacity:.72">'+credit+'</p>':'');
+    slideSec.parentNode.insertBefore(hero, slideSec);
+  }
+
   function setupHongheExtraGallery(){
-    var path=(location.pathname||'').replace(/\/index\.html$/, '');
+    var path=safePathName();
     if(!/honghe(\.html)?$/.test(path)) return;
     if(document.querySelector('.honghe-extra-gallery')) return;
-    var target=document.querySelector('section.block .slideshow');
+    var target=document.querySelector('#z_dEa8 .slideshow, section.block .slideshow');
     if(!target) return;
     var wrap=document.createElement('section');
     wrap.className='honghe-extra-wrap';
@@ -40,11 +70,13 @@
   }
 
   function setupLightbox(){
-    if(document.querySelector('.custom-lightbox')) return;
-    var overlay=document.createElement('div');
-    overlay.className='custom-lightbox';
-    overlay.innerHTML='\n      <button class="custom-lightbox-close" aria-label="Close">&times;</button>\n      <img class="custom-lightbox-image" alt="Fullscreen preview">';
-    document.body.appendChild(overlay);
+    var overlay=document.querySelector('.custom-lightbox');
+    if(!overlay){
+      overlay=document.createElement('div');
+      overlay.className='custom-lightbox';
+      overlay.innerHTML='\n        <button class="custom-lightbox-close" aria-label="Close">&times;</button>\n        <img class="custom-lightbox-image" alt="Fullscreen preview">';
+      document.body.appendChild(overlay);
+    }
     var img=overlay.querySelector('.custom-lightbox-image');
     var closeBtn=overlay.querySelector('.custom-lightbox-close');
     function close(){
@@ -59,20 +91,24 @@
       overlay.classList.add('is-open');
       document.body.classList.add('lightbox-open');
     }
-    closeBtn.addEventListener('click', close);
-    overlay.addEventListener('click', function(e){ if(e.target===overlay) close(); });
+    closeBtn.onclick=close;
+    overlay.onclick=function(e){ if(e.target===overlay) close(); };
     document.addEventListener('keydown', function(e){ if(e.key==='Escape') close(); });
-    document.querySelectorAll('img.image__image, section.block .slideshow .slide, .honghe-extra-gallery img').forEach(function(el){
+    document.addEventListener('click', function(e){
+      var el=e.target.closest('img.image__image, .grid-gallery img, section.block .slideshow .slide, .honghe-extra-gallery img');
+      if(!el) return;
       var src=el.getAttribute('src');
       if(!src || src==='data:,') return;
-      el.classList.add('lightbox-enabled');
-      el.style.cursor='zoom-in';
-      el.addEventListener('click', function(e){ e.preventDefault(); open(src, el.getAttribute('alt')); });
-    });
+      e.preventDefault();
+      e.stopPropagation();
+      open(src, el.getAttribute('alt'));
+    }, true);
   }
 
   function init(){
+    classifyPage();
     setupSlideshows();
+    setupHongheLayout();
     setupHongheExtraGallery();
     setupLightbox();
   }
